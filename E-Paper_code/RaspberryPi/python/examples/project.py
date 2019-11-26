@@ -48,7 +48,7 @@ try:
 
 	#data
 	print("date")
-	font18 = ImageFont.truetype('/usr/share/fonts/truetype/wqy/wqy.microhei.ttc', 18)
+	font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 	drawblack.text((70, 323), 'date', font=font18, fill=0)
 
 	#state
