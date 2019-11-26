@@ -44,7 +44,7 @@ try:
 
 	#state
 	print("state")
-	drawblack.text((70,323),sudo apt-get install fonts-wqy-microhei, font=font18, fill=0)
+	drawblack.text((70,323), 'state', font=font18, fill=0)
 	HBlackimage.paste(newimage, (399,70))
 
 	#QRCODE
