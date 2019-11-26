@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- codinbg:utf-8 -*-
+
 import epd7in5b
 import time
 from PIL import Image, ImageDraw, ImageFont
@@ -41,7 +44,7 @@ try:
 
 	#state
 	print("state")
-	drawblack.text((70,323), u'狀態', font=font18, fill=0)
+	drawblack.text((70,323),sudo apt-get install fonts-wqy-microhei, font=font18, fill=0)
 	HBlackimage.paste(newimage, (399,70))
 
 	#QRCODE
