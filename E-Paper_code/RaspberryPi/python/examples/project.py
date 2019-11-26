@@ -17,7 +17,7 @@ from io import BytesIO
 
 logging.basicConfig(level=logging.DEBUG)
 
-img_src1 = 'http://ppt.cc/fzW40x'
+img_src1 = 'https://imgur.com/xO3oPII'
 img_src2 = 'http://140.121.196.104:5000/static/hicoin.png'
 
 response1 = req.get(img_src1)
