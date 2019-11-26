@@ -23,8 +23,8 @@ img_src2 = 'https://ibb.co/DMNFMKY'
 response1 = req.get(img_src1)
 response2 = req.get(img_src2)
 
-image1 = Image.open(BytesIO(response1.content))
-image2 = Image.open(BytesIO(response2.content))
+image1 = Image.open(io.BytesIO(response1.content))
+image2 = Image.open(io.BytesIO(response2.content))
 
 try:
 	epd = epd7in5bc.EPD()
