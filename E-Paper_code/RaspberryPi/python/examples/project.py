@@ -16,20 +16,20 @@ import traceback
 logging.basicConfig(level=logging.DEBUG)
 
 try:
-	epd = epd7in5b.EPD()
+	epd = epd7in5bc.EPD()
 	epd.init()
 	print("Clear")
 	epd.Clear(0xFF)
 
 	#Drawing on the Horizontal image
-	HBlackimage = image.new('1', (epd7in5b.EPD.WIDTH, epd7in5b.EPD.HEIGHT), 255)
-	HRedimage = image.new('1', (epd7in5b.EPD.WIDTH, epd7in5b.EPD.HEIGHT), 255)
+	HBlackimage = image.new('1', (epd.width, epd.height), 255)
+	HRedimage = image.new('1', (epd.width, epd.height), 255)
 
 	#horizontal
 	print("Drawing")
 	drawblack = ImageDraw.Draw(HBlackimage)
 	drawred = ImageDraw.Draw(HRedimage)
-	font24 = ImageFont.truetype('/usr/share/fonts/truetype/wqy/wqy.microhei.ttc', 24)
+	font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
 
 	print("Drawline")
 	drawblack.line(((0,0), (0,383)), fill=0, width=5)
@@ -43,7 +43,7 @@ try:
 
 	#headpic
 	print("head")
-	newimage = Image.open("pic.bmp")
+	newimage = Image.open(os.path.join(picdir, '100x100.bmp'))
 	HBlackimage.paste(newimage, (0,0))
 
 	#data
