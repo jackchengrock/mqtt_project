@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- codinbg:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import epd7in5b
 import time
