@@ -22,8 +22,8 @@ try:
 	epd.Clear()
 
 	#Drawing on the Horizontal image
-	HBlackimage = image.new('1', (epd.width, epd.height), 255)
-	HRedimage = image.new('1', (epd.width, epd.height), 255)
+	HBlackimage = Image.new('1', (epd.width, epd.height), 255)
+	HRedimage = Image.new('1', (epd.width, epd.height), 255)
 
 	#horizontal
 	print("Drawing")
