@@ -13,18 +13,18 @@ from waveshare_epd import epd7in5bc
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
-import io
+from io import BytesIO
 
 logging.basicConfig(level=logging.DEBUG)
 
-img_src1 = 'https://www.showbizpizza.com/photos/cec/tx_roundrock/14.jpg'
-img_src2 = 'https://www.showbizpizza.com/photos/cec/tx_roundrock/14.jpg'
+img_src1 = 'https://ibb.co/2MXW2GQ'
+img_src2 = 'https://ibb.co/DMNFMKY'
 
-response1 = req.get(img_src1)
-response2 = req.get(img_src2)
+response1 = req.get("http://140.121.196.104:5000/static/hicoin.png")
+response2 = req.get("http://140.121.196.104:5000/static/hicoin.png")
 
-image1 = Image.open(io.BytesIO(response1.content))
-image2 = Image.open(io.BytesIO(response2.content))
+image1 = Image.open(BytesIO(response1.content))
+image2 = Image.open(BytesIO(response2.content))
 
 try:
 	epd = epd7in5bc.EPD()
