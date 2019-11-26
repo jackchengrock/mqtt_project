@@ -17,11 +17,11 @@ from io import BytesIO
 
 logging.basicConfig(level=logging.DEBUG)
 
-img_src1 = 'https://ibb.co/2MXW2GQ'
-img_src2 = 'https://ibb.co/DMNFMKY'
+img_src1 = 'http://140.121.196.104:5000/static/hicoin.png'
+img_src2 = 'http://140.121.196.104:5000/static/hicoin.png'
 
-response1 = req.get("http://140.121.196.104:5000/static/hicoin.png")
-response2 = req.get("http://140.121.196.104:5000/static/hicoin.png")
+response1 = req.get(img_src1)
+response2 = req.get(img_src2)
 
 image1 = Image.open(BytesIO(response1.content))
 image2 = Image.open(BytesIO(response2.content))
