@@ -19,7 +19,7 @@ try:
 	epd = epd7in5bc.EPD()
 	epd.init()
 	print("Clear")
-	epd.Clear(0xFF)
+	epd.Clear()
 
 	#Drawing on the Horizontal image
 	HBlackimage = image.new('1', (epd.width, epd.height), 255)
