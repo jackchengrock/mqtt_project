@@ -55,7 +55,7 @@ try:
 	#headpic
 	print("head") 
 	newimage = Image.open(os.path.join(picdir, '100x100.bmp'))
-	HBlackimage.paste(newimage, (0,0))
+	HBlackimage.paste(image1, (0,0))
 
 	#data
 	print("date")
@@ -65,12 +65,12 @@ try:
 	#state
 	print("state")
 	drawblack.text((339,20), 'state', font=font18, fill=0)
-	HBlackimage.paste(image1, (399,70))
+	#HBlackimage.paste(image1, (399,70))
 
 	#QRCODE
 	print("QRCODE")
 	drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
-	HBlackimage.paste(image2, (450,250))
+	#HBlackimage.paste(image2, (450,250))
 
 	epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
 
