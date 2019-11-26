@@ -17,8 +17,8 @@ import io
 
 logging.basicConfig(level=logging.DEBUG)
 
-img_src1 = 'https://ibb.co/2MXW2GQ'
-img_src2 = 'https://ibb.co/DMNFMKY'
+img_src1 = 'https://www.showbizpizza.com/photos/cec/tx_roundrock/14.jpg'
+img_src2 = 'https://www.showbizpizza.com/photos/cec/tx_roundrock/14.jpg'
 
 response1 = req.get(img_src1)
 response2 = req.get(img_src2)
