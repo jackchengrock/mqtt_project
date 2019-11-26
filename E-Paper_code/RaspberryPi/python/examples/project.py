@@ -17,7 +17,7 @@ from io import BytesIO
 
 logging.basicConfig(level=logging.DEBUG)
 
-img_src1 = 'https://upload.wikimedia.org/wikipedia/commons/5/54/Panda_Cub_%284274178112%29.jpg'
+img_src1 = 'https://imgur.com/I2qpsMZ'
 img_src2 = 'http://140.121.196.104:5000/static/hicoin.png'
 
 response1 = req.get(img_src1)
