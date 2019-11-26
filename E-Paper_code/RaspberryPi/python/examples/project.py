@@ -13,7 +13,7 @@ from waveshare_epd import epd7in5bc
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
-from io import BytesIO
+import io
 
 logging.basicConfig(level=logging.DEBUG)
 
