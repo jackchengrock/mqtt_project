@@ -10,7 +10,7 @@ if os.path.exists(libdir):
 
 import logging
 from waveshare_epd import epd7in5bc
-import time
+from time import gmtime, strftime
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 from io import BytesIO
@@ -23,8 +23,21 @@ img_src2 = 'http://140.121.196.104:5000/static/hicoin.png'
 response1 = req.get(img_src1)
 response2 = req.get(img_src2)
 
-image1 = Image.open(BytesIO(response1.content))
-image2 = Image.open(BytesIO(response2.content))
+image_head = Image.open(BytesIO(response1.content))
+image_QRcode = Image.open(BytesIO(response2.content))
+
+x_head = 319
+y_head = 283
+x_QRcode = 150
+y_QRcode = 150
+
+image_head = image_head.resize((x_head,y_head), Image.ANTIALIAS)
+image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode), Image.ANTIALIAS)
+
+image_head = image_head.resize((x_head,y_head),Image.ANTIALIAS)
+image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode),Image.ANTIALIAS)
+
+strftime("%Y-%m-%d", gmtime())
 
 try:
 	epd = epd7in5bc.EPD()
@@ -55,22 +68,22 @@ try:
 	#headpic
 	print("head") 
 	newimage = Image.open(os.path.join(picdir, '100x100.bmp'))
-	HBlackimage.paste(image1, (0,0))
+	HBlackimage.paste(image_head, (0,0))
 
 	#data
 	print("date")
 	font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
-	drawblack.text((70, 323), 'date', font=font18, fill=0)
+	drawblack.text((70, 323), strftime, font=font18, fill=0)
 
 	#state
 	print("state")
 	drawblack.text((339,20), 'state', font=font18, fill=0)
-	#HBlackimage.paste(image1, (399,70))
+	HBlackimage.paste(newimage, (399,70))
 
 	#QRCODE
 	print("QRCODE")
 	drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
-	#HBlackimage.paste(image2, (450,250))
+	HBlackimage.paste(image_QRcode, (450,250))
 
 	epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
 
