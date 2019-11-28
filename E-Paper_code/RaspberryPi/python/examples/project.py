@@ -73,7 +73,7 @@ try:
 	#data
 	print("date")
 	font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
-	drawblack.text((70, 323), strftime, font=font18, fill=0)
+	drawblack.text((70, 323), "strftime", font=font18, fill=0)
 
 	#state
 	print("state")
