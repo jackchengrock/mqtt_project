@@ -18,7 +18,7 @@ from io import BytesIO
 logging.basicConfig(level=logging.DEBUG)
 
 img_src1 = 'https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/11214290_979728228728313_6464220580933024886_n.jpg?_nc_cat=105&_nc_eui2=AeExGUqRxcZU4upTetprXJyv_Op4AKU9Oi0KerZLpKGeJ1eNelyKE8Va-EMuyfLeMAnEZ1jPtl2Q3kfCGkqxbtXdZlUhJaJEKiF-E1SavOs0xQ&_nc_ohc=k0ZZmaA6kdEAQkCfmXYSTOBPC0T1JsPb1y8boEcDjKwqiECZRTPWLAivA&_nc_ht=scontent-tpe1-1.xx&oh=f1bcf4ad88a887d8ffa735ea151bdeec&oe=5E3F278B'
-img_src2 = 'https://i.ibb.co/Jmqs8BQ/2.png'
+img_src2 = 'https://i.ibb.co/VJnjQhF/123.png'
 
 response1 = req.get(img_src1)
 response2 = req.get(img_src2)
