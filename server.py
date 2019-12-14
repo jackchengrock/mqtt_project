@@ -7,7 +7,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		self.send_response(200)
 		self.send_header('Content-Type', 'text/plain')
 		self.send_header('Content-Length', len(messagetosend))
-		self.end_header()
+		self.end_headers()
 		self.wfile.write(messagetosend)
 		return
 
