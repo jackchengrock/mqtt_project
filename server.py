@@ -12,7 +12,19 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		self.wfile.write(messagetosend)
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
-		print(Request)
+		
+		if(Request[0:1] == 's1')
+			print('head')
+		if(Request[0:1] == 's2')
+			print('QRcode')
+		if(Request[0:5] == 'state1')
+			print('state1')
+		if(Request[0:5] == 'state2')
+			print('state2')
+		if(Request[0:5] == 'state3')
+			print('state3')
+		if(Request[0:5] == 'state4')
+			print('state4')
 		return
 
 server_address_httpd = ('192.168.66.19', 8080)
