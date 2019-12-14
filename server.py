@@ -1,4 +1,4 @@
-from http.server import BaseHTTPRequesrHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 
 class RequestHandler_httpd(BaseHTTPRequesrHandler):
