@@ -3,7 +3,7 @@ import random
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
-		global Request
+		global Request, test
 		messagetosend = bytes('test', "utf")
 		self.send_response(200)
 		self.send_header('Content-Type', 'text/plain')
@@ -13,6 +13,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
 		
+		print(Request[0:5])
+
 		if Request[0:1] == 's1':
 			print('head')
 		if Request[0:1] == 's2':
