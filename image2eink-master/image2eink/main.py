@@ -8,7 +8,7 @@ if os.path.exists(libdir):
     sys.path.append(libdir)
 
 import logging
-from waveshare_epd import epd7in5bc     
+from waveshare_epd import epd7in5bc
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
@@ -40,7 +40,8 @@ try:
         logging.info("Clear...")
         epd.init()
         epd.Clear()
-
+        
+            
 except IOError as e:
     logging.info(e)
     
