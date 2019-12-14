@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 
-class RequestHandler_httpd(BaseHTTPRequesrHandler):
+class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
 		messagetosend = bytes((str((random.randint(1,100)))), "utf")
 		self.send_response(200)
