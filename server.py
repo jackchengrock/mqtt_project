@@ -16,6 +16,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 
 		if Request[0:2] == 's1':
 			print('head')
+			fun()
 		if Request[0:2] == 's2':
 			print('QRcode')
 		if Request[0:6] == 'state1':
