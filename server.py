@@ -15,17 +15,17 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		
 		print(Request[0:5])
 
-		if Request[0:1] == 's1':
+		if Request[0:2] == 's1':
 			print('head')
-		if Request[0:1] == 's2':
+		if Request[0:2] == 's2':
 			print('QRcode')
-		if Request[0:5] == 'state1':
+		if Request[0:6] == 'state1':
 			print('state1')
-		if Request[0:5] == 'state2':
+		if Request[0:6] == 'state2':
 			print('state2')
-		if Request[0:5] == 'state3':
+		if Request[0:6] == 'state3':
 			print('state3')
-		if Request[0:5] == 'state4':
+		if Request[0:6] == 'state4':
 			print('state4')
 		return
 
