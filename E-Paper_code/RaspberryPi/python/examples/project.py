@@ -37,6 +37,8 @@ image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode), Image.ANTIALIAS)
 image_head = image_head.resize((x_head,y_head),Image.ANTIALIAS)
 image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode),Image.ANTIALIAS)
 
+strftime("%Y-%m-%d", gmtime())
+
 try:
 	epd = epd7in5bc.EPD()
 	epd.init()
@@ -84,6 +86,8 @@ try:
 	HBlackimage.paste(image_QRcode, (450,250))
 
 	epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
+
+	time.sleep(2)
 	epd.sleep()
 
         
