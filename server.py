@@ -19,7 +19,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 
 		if Request[0:2] == 's1':
 			print('head')
-			os.system("python3 project.py")
+			fun()
 		if Request[0:2] == 's2':
 			print('QRcode')
 		if Request[0:6] == 'state1':
