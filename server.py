@@ -3,6 +3,9 @@ import random
 import os
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
+	def fun():
+		os.system("python3 project.py")
+
 	def do_GET(self):
 		global Request, test
 		messagetosend = bytes('test', "utf")
@@ -29,8 +32,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			print('state4')
 		return
 
-	def fun():
-		os.system("python3 project.py")
+	
 
 server_address_httpd = ('192.168.66.19', 8080)
 httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
