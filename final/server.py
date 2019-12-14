@@ -1,6 +1,5 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
-import os
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
@@ -13,6 +12,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		self.wfile.write(messagetosend)
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
+		
+		print(Request[0:5])
 
 		if Request[0:2] == 's1':
 			print('head')
@@ -27,9 +28,6 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		if Request[0:6] == 'state4':
 			print('state4')
 		return
-
-	def fun():
-		os.system("python3 project.py")
 
 server_address_httpd = ('192.168.66.19', 8080)
 httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
