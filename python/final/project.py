@@ -91,11 +91,11 @@ def draw_display():
 		time.sleep(2)
 		epd.sleep()
 
-        
-except IOError as e:
-    logging.info(e)
-    
-except KeyboardInterrupt:    
-    logging.info("ctrl + c:")
-    epd7in5bc.epdconfig.module_exit()
-    exit()
+			
+	except IOError as e:
+		logging.info(e)
+		
+	except KeyboardInterrupt:    
+		logging.info("ctrl + c:")
+		epd7in5bc.epdconfig.module_exit()
+		exit()
