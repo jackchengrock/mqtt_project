@@ -1,8 +1,11 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
-import project
+import os
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
+	def draw_display():
+		os.system("python3 project.py")
+
 	def do_GET(self):
 		global Request, test
 		messagetosend = bytes('test', "utf")
@@ -18,7 +21,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 
 		if Request[0:2] == 's1':
 			print('head')
-			project.draw_display()
+			draw_display()
 		if Request[0:2] == 's2':
 			print('QRcode')
 		if Request[0:6] == 'state1':
