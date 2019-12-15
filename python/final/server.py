@@ -3,7 +3,7 @@ import random
 import os
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
-	def fun():
+	def draw_display():
 		os.system("python3 project.py")
 
 	def do_GET(self):
@@ -21,7 +21,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 
 		if Request[0:2] == 's1':
 			print('head')
-			fun()
+			draw_display()
 		if Request[0:2] == 's2':
 			print('QRcode')
 		if Request[0:6] == 'state1':
@@ -33,7 +33,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		if Request[0:6] == 'state4':
 			print('state4')
 		return
-		
+
 server_address_httpd = ('192.168.66.19', 8080)
 httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
 print('start')
