@@ -1,5 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
+import os
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def fun():
@@ -33,11 +34,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			print('state4')
 		return
 
-<<<<<<< HEAD
 	
 
-=======
->>>>>>> parent of 1a4d1b1... 12
 server_address_httpd = ('192.168.66.19', 8080)
 httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
 print('start')
