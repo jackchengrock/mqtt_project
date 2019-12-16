@@ -52,8 +52,6 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 
         schedule.every(3).seconds.do(job)
 
-
-
 if __name__ == '__main__':
 	server_address_httpd = ('192.168.66.19', 8080)
 	httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
