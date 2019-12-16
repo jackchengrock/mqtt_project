@@ -40,8 +40,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			print(Request[0:6])
 			data = 0
 			case = 6
-		else
-			return
+		return
 
 if __name__ == '__main__':
 	server_address_httpd = ('192.168.66.19', 8080)
