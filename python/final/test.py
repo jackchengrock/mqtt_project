@@ -1,11 +1,12 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import os
+from datetime import datetime, timedelta
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
 		global Request, test, data, case
-        case = "1"
+        nowtime = date.today().strftime("%Y/%m/%d")
 		messagetosend = bytes('test', "utf")
 		self.send_response(200)
 		self.send_header('Content-Type', 'text/plain')
@@ -14,15 +15,13 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		self.wfile.write(messagetosend)
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
-		
-        if case == "1":
-            print("2")
 
 		if Request[0:2] == 's1':
 			data = Request[2:]
 			case = 1
 			print(Request[0:2])
 			print(Request[2:])
+            print(nowtime)
 			
 		if Request[0:2] == 's2':
 			print(Request[0:2])
