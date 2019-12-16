@@ -17,6 +17,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
 
+		test.test()
+
 		if Request[0:2] == 's1':
 			data = Request[2:]
 			case = 1
