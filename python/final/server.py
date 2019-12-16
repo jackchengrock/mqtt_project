@@ -21,10 +21,10 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 
 		if Request[0:2] == 's1':
 			print(Request[0:2])
-			print(Request[3:])
+			print(Request[2:])
 		if Request[0:2] == 's2':
 			print(Request[0:2])
-			print(Request[3:])
+			print(Request[2:])
 		if Request[0:6] == 'state1':
 			print(Request[0:6])
 		if Request[0:6] == 'state2':
