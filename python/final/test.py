@@ -20,63 +20,42 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			print(Request[2:])
 			data1 = Request[2:]
 			case = 1
-            print(data1)
-            print(data2)
-            print(state)
 
 		if Request[0:2] == 's2':
 			print(Request[0:2])
 			print(Request[2:])
 			data2 = Request[2:]
 			case = 2
-            print(data1)
-            print(data2)
-            print(state)
 
 		if Request[0:6] == 'state1':
 			print(Request[0:6])
             state = 1
 			data = 0
 			case = 3
-            print(data1)
-            print(data2)
-            print(state)
 
 		if Request[0:6] == 'state2':
 			print(Request[0:6])
             state = 2
 			data = 0
 			case = 4
-            print(data1)
-            print(data2)
-            print(state)
 
 		if Request[0:6] == 'state3':
 			print(Request[0:6])
             state = 3
 			data = 0
 			case = 5
-            print(data1)
-            print(data2)
-            print(state)
 
 		if Request[0:6] == 'state4':
 			print(Request[0:6])
             state = 4
 			data = 0
 			case = 6
-            print(data1)
-            print(data2)
-            print(state)
 
 		if Request[0:6] == 'state5':
 			print(Request[0:6])
             state = 5
 			data = 0
 			case = 7
-            print(data1)
-            print(data2)
-            print(state)
 
 		return
         
