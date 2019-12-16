@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 import requests as req
 from PIL import Image,ImageDraw,ImageFont
 
-def Image_split(data)
+def Image_split(data):
     global img_src1
     img_src1 = data  
     response1 = req.get(img_src1)
