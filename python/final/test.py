@@ -52,12 +52,11 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 
         
 
-if __name__ == '__main__':
-    schedule.every(3).seconds.do(job)
-	server_address_httpd = ('192.168.66.19', 8080)
-	httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
-	print('start')
-	httpd.serve_forever()
+server_address_httpd = ('192.168.66.19', 8080)
+httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
+print('start')
+httpd.serve_forever()
+schedule.every(3).seconds.do(job)
 
 
 while True:
