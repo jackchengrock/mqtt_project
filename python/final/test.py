@@ -1,7 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import os
-from split_image import Image_split
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
