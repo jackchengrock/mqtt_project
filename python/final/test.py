@@ -1,6 +1,4 @@
-def test(x,y):
-    print(x)
-    print(y)from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import os
 from test import test
