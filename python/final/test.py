@@ -50,7 +50,9 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 7
 		return
 
-schedule.every(3).seconds.do(job)
+        schedule.every(3).seconds.do(job)
+
+
 
 if __name__ == '__main__':
 	server_address_httpd = ('192.168.66.19', 8080)
