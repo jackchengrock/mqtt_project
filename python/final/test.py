@@ -56,7 +56,7 @@ if __name__ == '__main__':
 	print('start')
 	httpd.serve_forever()
 
-schedule.every().seconds.do(job)
+schedule.every(3).seconds.do(job)
 
 while True:
     schedule.run_pending()
