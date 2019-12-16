@@ -1,4 +1,4 @@
-from server import data, case
+import server 
 
-print(data)
-print(case)
+print(server.data)
+print(server.case)
