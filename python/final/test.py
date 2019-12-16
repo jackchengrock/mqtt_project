@@ -48,6 +48,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		if Request[0:6] == 'state5':
 			print(Request[0:6])
 			data = 0
+
+        schedule.every(3).seconds.do(job)
 		return
 
 if __name__ == '__main__':
@@ -56,7 +58,7 @@ if __name__ == '__main__':
 	print('start')
 	httpd.serve_forever()
 
-schedule.every(3).seconds.do(job)
+
 
 while True:
     schedule.run_pending()
