@@ -20,18 +20,19 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		print(Request[0:5])
 
 		if Request[0:2] == 's1':
-			print('head')
-			draw_display()
+			print(Request[0:2])
+			print(Request[3:])
 		if Request[0:2] == 's2':
-			print('QRcode')
+			print(Request[0:2])
+			print(Request[3:])
 		if Request[0:6] == 'state1':
-			print('state1')
+			print(Request[0:6])
 		if Request[0:6] == 'state2':
-			print('state2')
+			print(Request[0:6])
 		if Request[0:6] == 'state3':
-			print('state3')
+			print(Request[0:6])
 		if Request[0:6] == 'state4':
-			print('state4')
+			print(Request[0:6])
 		return
 
 server_address_httpd = ('192.168.66.19', 8080)
