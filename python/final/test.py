@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
 		global Request, test, data, case
-        nowtime = date.today().strftime("%Y/%m/%d")
+        global nowtime = date.today().strftime("%Y/%m/%d")
 		messagetosend = bytes('test', "utf")
 		self.send_response(200)
 		self.send_header('Content-Type', 'text/plain')
