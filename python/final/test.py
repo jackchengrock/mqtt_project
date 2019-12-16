@@ -53,8 +53,6 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 7
 
 		return
-    def asdf():
-        print("123")
 
 if __name__ == '__main__':
 	server_address_httpd = ('192.168.66.19', 8080)
