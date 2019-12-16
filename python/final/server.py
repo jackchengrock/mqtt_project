@@ -16,6 +16,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
 
+		test()
 		
 
 		if Request[0:2] == 's1':
@@ -23,7 +24,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 1
 			print(Request[0:2])
 			print(Request[2:])
-			test()
+			
 		if Request[0:2] == 's2':
 			print(Request[0:2])
 			print(Request[2:])
