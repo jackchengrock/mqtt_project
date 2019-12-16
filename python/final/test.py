@@ -20,14 +20,13 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			print(Request[0:2])
 			print(Request[2:])
 			data1 = Request[2:]
-            abcd(data1)
+            abcd(Request[2:])
             
-
 		if Request[0:2] == 's2':
 			print(Request[0:2])
 			print(Request[2:])
 			data2 = Request[2:]
-            
+
 		if Request[0:6] == 'state1':
 			print(Request[0:6])
 
