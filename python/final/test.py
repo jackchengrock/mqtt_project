@@ -58,7 +58,7 @@ if __name__ == '__main__':
 	httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
 	print('start')
 	httpd.serve_forever()
-    schedule.every(3).seconds.do(job)
+    schedule.every(3).seconds.do(job())
 
 while True:
     schedule.run_pending()
