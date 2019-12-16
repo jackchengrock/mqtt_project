@@ -7,6 +7,10 @@ import time
 def job():
     print("I'm working...")
 
+def sched_job():
+    schedule.every(10).seconds.do(job)
+    return schedule.CancelJob
+
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
 		global Request, test, data, case
@@ -19,9 +23,9 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
 
-        schedule.every(3).seconds.do(job)
-        
-		if Request[0:2] == 's1':
+        sched_job()
+
+        if Request[0:2] == 's1':
 			data = Request[2:]
 			case = 1
 			print(Request[0:2])
@@ -57,6 +61,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 server_address_httpd = ('192.168.66.19', 8080)
 httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
 print('start')
+schedule.every(3).seconds.do(sched_job)
 httpd.serve_forever()
 
 
