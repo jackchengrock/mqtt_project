@@ -1,7 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import os
-import schedule
 import time
 
 def job():
@@ -48,7 +47,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		if Request[0:6] == 'state5':
 			print(Request[0:6])
 			data = 0
-        schedule.every(3).seconds.do(job)
+        localtime = time.localtime(time.time())
+        print "本地时间为 :", localtime
 		return
 
 if __name__ == '__main__':
@@ -56,9 +56,3 @@ if __name__ == '__main__':
 	httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
 	print('start')
 	httpd.serve_forever()
-
-
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
