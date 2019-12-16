@@ -1,4 +1,4 @@
-from server import Request
+from server import data, case
 
-print(Request)
-print(len(Request))
+print(data)
+print(case)
