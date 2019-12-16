@@ -1,3 +1,3 @@
-def test(x,y)
-print(x)
-print(y)
+def test(x,y):
+    print(x)
+    print(y)
