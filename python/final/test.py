@@ -1,6 +1,11 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import os
+import schedule
+import time
+
+def job():
+    print('Hello, World!')
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
@@ -49,4 +54,9 @@ if __name__ == '__main__':
 	server_address_httpd = ('192.168.66.19', 8080)
 	httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
 	print('start')
+    schedule.every().seconds.do(job)
 	httpd.serve_forever()
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
