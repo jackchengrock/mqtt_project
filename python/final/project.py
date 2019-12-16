@@ -39,8 +39,15 @@ def draw_display(data, case):
 	elif case == 7:
 		state = "state5.bmp"
 
-	response1 = req.get(img_src1)
-	response2 = req.get(img_src2)
+	try:
+		response1 = req.get(img_src1)
+	except req.exceptions.ConnectionError:
+		response1 = req.get(img_src1)
+	
+	try:
+		response2 = req.get(img_src2)
+	except req.exceptions.ConnectionError:
+		response1 = req.get(img_src1)
 
 	image_head = Image.open(BytesIO(response1.content))
 	image_QRcode = Image.open(BytesIO(response2.content))
