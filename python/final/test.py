@@ -5,7 +5,7 @@ import os
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
 		global Request, test, data, case
-        case = 1
+        case = "1"
 		messagetosend = bytes('test', "utf")
 		self.send_response(200)
 		self.send_header('Content-Type', 'text/plain')
@@ -15,7 +15,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
 		
-        if case == 1:
+        if case == "1":
             print("2")
 
 		if Request[0:2] == 's1':
