@@ -20,7 +20,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		Request = Request[5: int(len(Request)-9)]
 
         schedule.every(3).seconds.do(job)
-
+        
 		if Request[0:2] == 's1':
 			data = Request[2:]
 			case = 1
