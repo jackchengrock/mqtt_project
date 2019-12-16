@@ -6,7 +6,6 @@ from datetime import datetime, timedelta
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
 		global Request, test, data, case
-        global nowtime = date.today().strftime("%Y/%m")
 		messagetosend = bytes('test', "utf")
 		self.send_response(200)
 		self.send_header('Content-Type', 'text/plain')
@@ -21,7 +20,6 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 1
 			print(Request[0:2])
 			print(Request[2:])
-            print(nowtime)
 			
 		if Request[0:2] == 's2':
 			print(Request[0:2])
@@ -55,6 +53,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 7
 
 		return
+    def asdf():
+        print("123")
 
 if __name__ == '__main__':
 	server_address_httpd = ('192.168.66.19', 8080)
