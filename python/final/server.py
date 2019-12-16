@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import os
+from test import test
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
@@ -19,27 +20,33 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 1
 			print(Request[0:2])
 			print(Request[2:])
+			test(data,case)
 		if Request[0:2] == 's2':
 			print(Request[0:2])
 			print(Request[2:])
 			data = Request[2:]
 			case = 2
+			test(data,case)
 		if Request[0:6] == 'state1':
 			print(Request[0:6])
 			data = 0
 			case = 3
+			test(data,case)
 		if Request[0:6] == 'state2':
 			print(Request[0:6])
 			data = 0
 			case = 4
+			test(data,case)
 		if Request[0:6] == 'state3':
 			print(Request[0:6])
 			data = 0
 			case = 5
+			test(data,case)
 		if Request[0:6] == 'state4':
 			print(Request[0:6])
 			data = 0
 			case = 6
+			test(data,case)
 		return
 
 if __name__ == '__main__':

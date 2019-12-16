@@ -1,4 +1,3 @@
-import server 
-
-print(server.data)
-print(server.case)
+def test(x,y)
+print(x)
+print(y)
