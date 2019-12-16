@@ -24,7 +24,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		Request = Request[5: int(len(Request)-9)]
 
         if Request[0:2] == 's1':
-			data = Request[2:]
+            data = Request[2:]
 			case = 1
 			print(Request[0:2])
 			print(Request[2:])
@@ -59,7 +59,6 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 server_address_httpd = ('192.168.66.19', 8080)
 httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
 print('start')
-schedule.every(3).seconds.do(sched_job)
 httpd.serve_forever()
 
 
