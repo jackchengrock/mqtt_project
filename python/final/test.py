@@ -1,4 +1,4 @@
-from server import RequestHandler_httpd
+from server import data, case
 
-print(RequestHandler_httpd.data)
-print(RequestHandler_httpd.case)
+print(data)
+print(case)
