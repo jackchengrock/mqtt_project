@@ -53,12 +53,14 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 7
 		return
 
+schedule.every(3).seconds.do(job)
+
 if __name__ == '__main__':
 	server_address_httpd = ('192.168.66.19', 8080)
 	httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
 	print('start')
 	httpd.serve_forever()
-    schedule.every(3).seconds.do(job())
+
 
 while True:
     schedule.run_pending()
