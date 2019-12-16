@@ -1,8 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import os
-from project import draw_display
-from split_image import Image_split
 import schedule
 import time
 
