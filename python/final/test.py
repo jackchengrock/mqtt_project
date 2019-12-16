@@ -1,15 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import os
-import schedule
-import time
-
-def job():
-    print("I'm working...")
-
-def sched_job():
-    schedule.every(10).seconds.do(job)
-    return schedule.CancelJob
+from split_image import Image_split
 
 class RequestHandler_httpd(BaseHTTPRequestHandler):
 	def do_GET(self):
@@ -23,8 +15,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		Request = self.requestline
 		Request = Request[5: int(len(Request)-9)]
 
-        if Request[0:2] == 's1':
-            data = Request[2:]
+		if Request[0:2] == 's1':
+			data = Request[2:]
 			case = 1
 			print(Request[0:2])
 			print(Request[2:])
@@ -32,6 +24,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			print(Request[0:2])
 			print(Request[2:])
 			data = Request[2:]
+			case = 2
 		if Request[0:6] == 'state1':
 			print(Request[0:6])
 			data = 0
@@ -51,18 +44,10 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 		if Request[0:6] == 'state5':
 			print(Request[0:6])
 			data = 0
-			case = 7
 		return
 
-        
-
-server_address_httpd = ('192.168.66.19', 8080)
-httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
-print('start')
-httpd.serve_forever()
-
-
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+if __name__ == '__main__':
+	server_address_httpd = ('192.168.66.19', 8080)
+	httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
+	print('start')
+	httpd.serve_forever()
