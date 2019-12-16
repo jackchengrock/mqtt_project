@@ -23,7 +23,7 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 1
 			print(Request[0:2])
 			print(Request[2:])
-			test.test()
+			test()
 		if Request[0:2] == 's2':
 			print(Request[0:2])
 			print(Request[2:])
