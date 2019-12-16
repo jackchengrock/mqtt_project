@@ -53,6 +53,8 @@ class RequestHandler_httpd(BaseHTTPRequestHandler):
 			case = 7
 
 		return
+    def date_time_string(self, timestamp=None):
+        
 
 if __name__ == '__main__':
 	server_address_httpd = ('192.168.66.19', 8080)
