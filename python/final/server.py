@@ -25,7 +25,7 @@ def on_message(client, userdata, msg):
 		print("Receive msg #2")
 		b = msg.topic + "" + str(msg.payload)
 		print(b)
-	if now_time.date().year == 2019
+	if now_time.date().year == 2019:
 		print("123")
 
 	
