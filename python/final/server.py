@@ -10,7 +10,7 @@ def timeTask():
 	Timer(5, task, ()).start()
 
 def task():
-	print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+	print("123")
 
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
