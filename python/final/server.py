@@ -20,13 +20,13 @@ def on_message(client, userdata, msg):
 		a = msg.topic + "" + str(msg.payload)
 		print(a)
 		abc(a,a)
-		print(now_time)
 	if msg.payload == "World!":
 		print("Receive msg #2")
 		b = msg.topic + "" + str(msg.payload)
 		print(b)
-    if now_time.date().year == 2019:
-       	print('123')
+
+	if now_time.date().year == 2019:
+		print("123")
 
 	
 
