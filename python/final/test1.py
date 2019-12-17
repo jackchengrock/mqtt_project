@@ -1,3 +1,2 @@
-def abc(x, y):
-    print(x)
-    print(y)
+def abc():
+    print("123")
