@@ -39,7 +39,7 @@ def on_message(client, userdata, msg):
 
 	
 if __name__ == '__main__':
-    timedTask()
+    timeTask()
     while True:
 		client = mqtt.Client()
 		client.on_connect = on_connect
