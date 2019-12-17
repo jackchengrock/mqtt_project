@@ -16,7 +16,7 @@ def on_message(client, userdata, msg):
 		print("Received msg #1")
 		a = msg.topic + "" + str(msg.payload)
 		print(a)
-		abc(a, "123")
+		abc(a,a)
 	if msg.payload == "World!":
 		print("Receive msg #2")
 		b = msg.topic + "" + str(msg.payload)
