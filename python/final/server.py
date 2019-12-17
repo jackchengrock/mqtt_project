@@ -7,12 +7,12 @@ def on_connect(clien, userdata, flags, rc):
 	client.subscribe("CoreElectronics/topic")
 
 def on_message(client, userdata, msg):
-	print(msg.topic + "" str(msg.playload))
+	print(msg.topic + "" str(msg.payload))
 
-	if msg.playload == "Hello":
+	if msg.payload == "Hello":
 		print("Received msg #1")
 
-	if msg.playload == "World!":
+	if msg.payload == "World!":
 		print("Receive msg #2")
 
 
