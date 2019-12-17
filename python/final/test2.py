@@ -1,9 +1,10 @@
-from test1 import  abc
-import datetime
+#!/usr/bin/env python
+ 
+import time
+def sleeptime(hour,min,sec):
+    return hour*3600 + min*60 + sec
 
-now_time = datetime.datetime.now()
-print(now_time.date().year)
-
-while True:
-    if now_time.date().year == 2019:
-        print('123')
+second = sleeptime(0,0,20)
+while 1==1:
+    time.sleep(second)
+    print 'do action'
