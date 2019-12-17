@@ -13,12 +13,11 @@ def on_message(client, userdata, msg):
 	if msg.payload == "Hello":
 		print("Received msg #1")
 		a = msg.topic + "" + str(msg.payload)
-		print(a)
+		abc(a, b)
 	if msg.payload == "World!":
 		print("Receive msg #2")
 		b = msg.topic + "" + str(msg.payload)
-		print(b)
-		print(a)
+		
 
 client = mqtt.Client()
 client.on_connect = on_connect
