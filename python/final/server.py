@@ -17,7 +17,7 @@ def on_message(client, userdata, msg):
 	if msg.payload == "World!":
 		print("Receive msg #2")
 		b = msg.topic + "" + str(msg.payload)
-		
+		print(a)
 
 client = mqtt.Client()
 client.on_connect = on_connect
