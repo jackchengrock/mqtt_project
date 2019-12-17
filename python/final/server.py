@@ -4,9 +4,6 @@ import paho.mqtt.client as mqtt
 from test1 import abc
 import datetime
 
-def sleeptime(hour,min,sec):
-    return hour*3600 + min*60 + sec
-
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
 
@@ -16,7 +13,6 @@ def on_connect(clien, userdata, flags, rc):
 def on_message(client, userdata, msg):
 	print(msg.topic + "" + str(msg.payload))
 	global a, b
-	now_time = datetime.datetime.now()
 	
 	if msg.payload == "Hello":
 		print("Received msg #1")
@@ -39,5 +35,6 @@ if __name__ == '__main__':
 	client.loop_start()
 
 	while True:
-		time.sleep(second)
-    	print 'do action'
+		now_time = datetime.datetime.now()
+		if now_time.second == 20:
+			print("123")
