@@ -31,7 +31,7 @@ if __name__ == '__main__':
 	client.on_message = on_message
 
 	client.connect("192.168.66.19", 1883, 60)
-	client.loop_start()
+	client.loop_forever()
 
 	#while True:
 		#now_time = datetime.datetime.now()
