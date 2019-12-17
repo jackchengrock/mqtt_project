@@ -33,7 +33,7 @@ if __name__ == '__main__':
 	client.connect("192.168.66.19", 1883, 60)
 	client.loop_start()
 
-	while True:
-		now_time = datetime.datetime.now()
-		if now_time.second == 20:
-			print(now_time)
+	#while True:
+		#now_time = datetime.datetime.now()
+		#if now_time.second == 20:
+			#print(now_time)
