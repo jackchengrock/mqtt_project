@@ -22,6 +22,9 @@ def on_message(client, userdata, msg):
 		b = msg.topic + "" + str(msg.payload)
 		print(b)
 
+	now_time = datetime.datetime.now()
+	print(now_time)
+
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
