@@ -3,14 +3,9 @@
 import paho.mqtt.client as mqtt
 from test1 import abc
 import datetime
-from threading import Timer
-import time
 
-def timeTask():
-	Timer(5, task, ()).start()
-
-def task():
-	print("123")
+def sleeptime(hour,min,sec):
+    return hour*3600 + min*60 + sec
 
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
@@ -35,6 +30,7 @@ def on_message(client, userdata, msg):
 
 	
 if __name__ == '__main__':
+	second = sleeptime(0,0,5)
 	client = mqtt.Client()
 	client.on_connect = on_connect
 	client.on_message = on_message
@@ -43,4 +39,5 @@ if __name__ == '__main__':
 	client.loop_start()
 
 	while True:
-		timeTask()
+		time.sleep(second)
+    	print 'do action'
