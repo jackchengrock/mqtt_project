@@ -26,7 +26,6 @@ def on_message(client, userdata, msg):
 
 	
 if __name__ == '__main__':
-	second = sleeptime(0,0,5)
 	client = mqtt.Client()
 	client.on_connect = on_connect
 	client.on_message = on_message
@@ -37,4 +36,4 @@ if __name__ == '__main__':
 	while True:
 		now_time = datetime.datetime.now()
 		if now_time.second == 20:
-			print("123")
+			print(now_time)
