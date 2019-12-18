@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
+import requests as req
 picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
 libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
 if os.path.exists(libdir):
@@ -9,93 +10,83 @@ if os.path.exists(libdir):
 
 import logging
 from waveshare_epd import epd7in5bc
-import time
+from time import gmtime, strftime
 from PIL import Image,ImageDraw,ImageFont
-import traceback
+from io import BytesIO
+
+img_src1 = 'https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/11214290_979728228728313_6464220580933024886_n.jpg?_nc_cat=105&_nc_eui2=AeExGUqRxcZU4upTetprXJyv_Op4AKU9Oi0KerZLpKGeJ1eNelyKE8Va-EMuyfLeMAnEZ1jPtl2Q3kfCGkqxbtXdZlUhJaJEKiF-E1SavOs0xQ&_nc_ohc=k0ZZmaA6kdEAQkCfmXYSTOBPC0T1JsPb1y8boEcDjKwqiECZRTPWLAivA&_nc_ht=scontent-tpe1-1.xx&oh=f1bcf4ad88a887d8ffa735ea151bdeec&oe=5E3F278B'
+img_src2 = 'https://i.ibb.co/VJnjQhF/123.png'
+state = "state1.bmp"
+headB = "layer_0.bmp"
+headR = "layer_1.bmp"
+
 
 logging.basicConfig(level=logging.DEBUG)
 
+response1 = req.get(img_src1)	
+response2 = req.get(img_src2)
+
+image_QRcode = Image.open(BytesIO(response2.content))
+stateimage = Image.open(os.path.join(picdir, state))
+image_headB = Image.open(BytesIO(response1.content))
+image_headR = Image.open(os.path.join(picdir, headR))
+
+x_head = 319
+y_head = 283
+x_QRcode = 150
+y_QRcode = 150
+x_state = 100
+y_state = 100
+
+image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode), Image.ANTIALIAS)
+stateimage = stateimage.resize((x_state,y_state), Image.ANTIALIAS)
+image_headB = image_headB.resize((x_head,y_head), Image.ANTIALIAS)
+image_headR = image_headR.resize((x_head,y_head), Image.ANTIALIAS)
+
 try:
-    logging.info("epd7in5bc Demo")
-    
-    epd = epd7in5bc.EPD()
-    logging.info("init and Clear")
-    epd.init()
-    epd.Clear()
-    time.sleep(1)
-    
-    # Drawing on the image
-    logging.info("Drawing")    
-    font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
-    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
-    
-    # Drawing on the Horizontal image
-    logging.info("1.Drawing on the Horizontal image...") 
-    HBlackimage = Image.new('1', (epd.width, epd.height), 255)  # 298*126
-    HRYimage = Image.new('1', (epd.width, epd.height), 255)  # 298*126  ryimage: red or yellow image  
-    drawblack = ImageDraw.Draw(HBlackimage)
-    drawry = ImageDraw.Draw(HRYimage)
-    drawblack.text((10, 0), 'hello world', font = font24, fill = 0)
-    drawblack.text((10, 20), '7.5inch e-Paper bc', font = font24, fill = 0)
-    drawblack.text((150, 0), u'微雪电子', font = font24, fill = 0)    
-    drawblack.line((20, 50, 70, 100), fill = 0)
-    drawblack.line((70, 50, 20, 100), fill = 0)
-    drawblack.rectangle((20, 50, 70, 100), outline = 0)    
-    drawry.line((165, 50, 165, 100), fill = 0)
-    drawry.line((140, 75, 190, 75), fill = 0)
-    drawry.arc((140, 50, 190, 100), 0, 360, fill = 0)
-    drawry.rectangle((80, 50, 130, 100), fill = 0)
-    drawry.chord((200, 50, 250, 100), 0, 360, fill = 0)
-    epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRYimage))
-    time.sleep(2)
-    
-    # Drawing on the Vertical image
-    logging.info("2.Drawing on the Vertical image...")
-    LBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 126*298
-    LRYimage = Image.new('1', (epd.height, epd.width), 255)  # 126*298
-    drawblack = ImageDraw.Draw(LBlackimage)
-    drawry = ImageDraw.Draw(LRYimage)
-    
-    drawblack.text((2, 0), 'hello world', font = font18, fill = 0)
-    drawblack.text((2, 20), '7.5inch epd bc', font = font18, fill = 0)
-    drawblack.text((20, 50), u'微雪电子', font = font18, fill = 0)
-    drawblack.line((10, 90, 60, 140), fill = 0)
-    drawblack.line((60, 90, 10, 140), fill = 0)
-    drawblack.rectangle((10, 90, 60, 140), outline = 0)
-    drawry.line((95, 90, 95, 140), fill = 0)
-    drawry.line((70, 115, 120, 115), fill = 0)
-    drawry.arc((70, 90, 120, 140), 0, 360, fill = 0)
-    drawry.rectangle((10, 150, 60, 200), fill = 0)
-    drawry.chord((70, 150, 120, 200), 0, 360, fill = 0)
-    epd.display(epd.getbuffer(LBlackimage), epd.getbuffer(LRYimage))
-    time.sleep(2)
-    
-    logging.info("3.read bmp file")
-    HBlackimage = Image.open(os.path.join(picdir, '7in5b-b.bmp'))
-    HRYimage = Image.open(os.path.join(picdir, '7in5b-r.bmp'))
-    # HBlackimage = Image.open(os.path.join(picdir, '7in5c-b.bmp'))
-    # HRYimage = Image.open(os.path.join(picdir, '7in5c-r.bmp'))
-    epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRYimage))
-    time.sleep(2)
-    
-    logging.info("4.read bmp file on window")
-    blackimage1 = Image.new('1', (epd.width, epd.height), 255)  # 298*126
-    redimage1 = Image.new('1', (epd.width, epd.height), 255)  # 298*126    
-    newimage = Image.open(os.path.join(picdir, '100x100.bmp'))
-    blackimage1.paste(newimage, (50,10))    
-    epd.display(epd.getbuffer(blackimage1), epd.getbuffer(redimage1))
-    
-    logging.info("Clear...")
-    epd.init()
-    epd.Clear()
-    
-    logging.info("Goto Sleep...")
-    epd.sleep()
-        
+	epd = epd7in5bc.EPD()
+	epd.init()
+	print("Clear")
+	epd.Clear()
+	#Drawing on the Horizontal image
+	HBlackimage = Image.new('1', (epd.width, epd.height), 255)
+	HRedimage = Image.new('1', (epd.width, epd.height), 255)
+	#horizontal
+	print("Drawing")
+	drawblack = ImageDraw.Draw(HBlackimage)
+	drawred = ImageDraw.Draw(HRedimage)
+	font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
+	print("Drawline")
+	drawblack.line(((0,0), (0,383)), fill=0, width=5)
+	drawblack.line(((0,0), (639,0)), fill=0, width=5)
+	drawblack.line(((639,383), (0,383)), fill=0, width=5)
+	drawblack.line(((639,0), (639,383)), fill=0, width=5)
+	drawblack.line(((319,0), (319,383)), fill=0, width=5)
+	drawblack.line(((0,283), (319,283)), fill=0, width=5)
+	drawblack.line(((319,233), (639,233)), fill=0, width=5)
+	#headpic
+	print("head") 
+	HBlackimage.paste(image_headB, (0,0))
+	#data
+	print("date")
+	font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
+	drawblack.text((70, 323), "2019/12/19", font=font18, fill=0)
+	#state
+	print("state")
+	drawblack.text((339,20), 'state', font=font18, fill=0)
+	HBlackimage.paste(stateimage, (399,70))
+	#QRCODE
+	print("QRCODE")
+	drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
+	HBlackimage.paste(image_QRcode, (450,250))
+	epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
+	time.sleep(2)
+	epd.sleep()
+		
 except IOError as e:
-    logging.info(e)
-    
+	logging.info(e)
+	
 except KeyboardInterrupt:    
-    logging.info("ctrl + c:")
-    epd7in5bc.epdconfig.module_exit()
-    exit()
+	logging.info("ctrl + c:")
+	epd7in5bc.epdconfig.module_exit()
+	exit()
