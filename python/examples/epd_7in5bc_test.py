@@ -40,7 +40,6 @@ y_state = 100
 image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode), Image.ANTIALIAS)
 stateimage = stateimage.resize((x_state,y_state), Image.ANTIALIAS)
 image_headB = image_headB.resize((x_head,y_head), Image.ANTIALIAS)
-image_headR = image_headR.resize((x_head,y_head), Image.ANTIALIAS)
 
 try:
 	epd = epd7in5bc.EPD()
