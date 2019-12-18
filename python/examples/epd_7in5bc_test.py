@@ -73,6 +73,7 @@ try:
 	drawblack.text((339,20), 'state', font=font18, fill=0)
 	HBlackimage.paste(stateimage, (399,70))
     drawblack.text((339,172), u'請留言', font=font18, fill=0)
+    
 	#QRCODE
 	print("QRCODE")
 	drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
