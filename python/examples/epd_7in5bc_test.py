@@ -29,7 +29,6 @@ response2 = req.get(img_src2)
 image_QRcode = Image.open(BytesIO(response2.content))
 stateimage = Image.open(os.path.join(picdir, state))
 image_headB = Image.open(BytesIO(response1.content))
-image_headR = Image.open(os.path.join(picdir, headR))
 
 x_head = 319
 y_head = 283
