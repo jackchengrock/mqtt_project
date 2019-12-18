@@ -23,12 +23,13 @@ headR = "layer_1.bmp"
 
 
 logging.basicConfig(level=logging.DEBUG)
-	
+
+response1 = req.get(img_src1)	
 response2 = req.get(img_src2)
 
 image_QRcode = Image.open(BytesIO(response2.content))
 stateimage = Image.open(os.path.join(picdir, state))
-image_headB = Image.open(os.path.join(picdir, headB))
+image_headB = Image.open(BytesIO(response1.content))
 image_headR = Image.open(os.path.join(picdir, headR))
 
 x_head = 319
@@ -67,7 +68,6 @@ try:
 	#headpic
 	print("head") 
 	HBlackimage.paste(image_headB, (0,0))
-	HRedimage.paste(image_hradR, (0,0))
 	#data
 	print("date")
 	font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
