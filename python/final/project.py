@@ -15,6 +15,7 @@ from PIL import Image,ImageDraw,ImageFont
 from io import BytesIO
 
 error = "100x100.bmp"
+state = "1.png"
 logging.basicConfig(level=logging.DEBUG)
 
 x_head = 319
@@ -50,7 +51,7 @@ def drawpic(head, state, qrcode, todaytime):
 
 		try:
 			state = state.decode('utf-8','strict')
-			stateimage = Image.open(os.path.join(picdir, state+".png"))
+			stateimage = Image.open(os.path.join(picdir, state))
 		except:
 			stateimage = Image.open(os.path.join(picdir, error))
 
