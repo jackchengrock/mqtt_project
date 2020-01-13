@@ -87,19 +87,19 @@ def drawpic(head, state, qrcode, todaytime):
 		#state
 		print("state")
 		drawblack.text((339,20), 'state', font=font18, fill=0)
-		HBlackimage.paste(stateimage, (420,60))
+		HBlackimage.paste(stateimage, (420,110))
 		if state=="1":
-			drawblack.text((400,80), u'1', font=font18, fill=0)
+			drawblack.text((400,80), u'暫時外出', font=font18, fill=0)
 		elif state=="2":
-			drawblack.text((400,80), u'2', font=font18, fill=0)
+			drawblack.text((400,80), u'休假中', font=font18, fill=0)
 		elif state=="3":
-			drawblack.text((400,80), u'3', font=font18, fill=0)
+			drawblack.text((400,80), u'請留言', font=font18, fill=0)
 		elif state=="4":
-			drawblack.text((400,80), u'4', font=font18, fill=0)
+			drawblack.text((400,80), u'會議中', font=font18, fill=0)
 		elif state=="5":
-			drawblack.text((400,80), u'5', font=font18, fill=0)
+			drawblack.text((400,80), u'敲門請進', font=font18, fill=0)
 		else:
-			drawblack.text((400,80), u'5', font=font18, fill=0)
+			drawblack.text((400,80), state, font=font18, fill=0)
 			
 		#QRCODE
 		print("QRCODE")
