@@ -7,7 +7,7 @@ from apscheduler.schedulers.gevent import GeventScheduler
 import schedule
 from project import drawpic
 
-today = ''
+today = datetime.datetime.now().strftime("%Y/%m/%d")
 head = ''
 state = ''
 qrcode = ''
@@ -24,17 +24,16 @@ def on_message(client, userdata, msg):
 	global today, head, state, qrcode
 
 	if msg.topic == "Project/head":
-		print(msg.payload)
 		head = msg.payload
-		drawpic(head, state, qrcode, today)
+		drawpic(head[1::], state, qrcode, today)
 	if msg.topic == "Project/state":
 		print(msg.payload)
 		state = msg.payload 
-		drawpic(head, state, qrcode, today)
+		drawpic(head[1::], state, qrcode, today)
 	if msg.topic == "Project/qrcode":
 		print(msg.payload)
 		qrcode = msg.payload
-		drawpic(head, state, qrcode, today)
+		drawpic(head[1::], state, qrcode, today)
 
 def changtime():
 	global today
