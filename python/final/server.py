@@ -8,6 +8,9 @@ import schedule
 from project import drawpic
 
 today = ''
+head = ''
+state = ''
+qrcode = ''
 
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
@@ -18,10 +21,7 @@ def on_connect(clien, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
 	print(msg.topic + "" + str(msg.payload))
-	global today
-	head = ''
-	state = ''
-	qrcode = ''
+	global today, head, state, qrcode
 
 	if msg.topic == "Project/head":
 		head = msg.payload
