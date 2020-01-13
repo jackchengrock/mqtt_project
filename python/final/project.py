@@ -78,7 +78,7 @@ try:
 	#QRCODE
 	print("QRCODE")
 	drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
-	HBlackimage.paste(image_QRcode, (450,250))
+	HBlackimage.paste(image_QRcode, (450,240))
 	epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
 	time.sleep(2)
 	epd.sleep()
