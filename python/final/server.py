@@ -21,9 +21,15 @@ def on_message(client, userdata, msg):
 	if msg.payload == "World!":
 		print("123")
 
+def changtime():
+	print("123")
+
+schedule.every(10).second.do(changtime)
+
 def job():
 	while True:
-		print("qwe")
+		#print("qwe")
+		schedule.run_pending()
 		time.sleep(4)
 
 if __name__ == '__main__':
