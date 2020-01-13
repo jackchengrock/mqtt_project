@@ -3,7 +3,7 @@
 import paho.mqtt.client as mqtt
 import datetime
 import threading
-from time import sleep, ctimes
+from time import sleep
 
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
