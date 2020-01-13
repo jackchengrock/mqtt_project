@@ -15,9 +15,9 @@ def on_message(client, userdata, msg):
 	global a, b
 	
 	if msg.payload == "Hello":
-		
+		print("123")
 	if msg.payload == "World!":
-		
+		print("123")
 
 	
 if __name__ == '__main__':
