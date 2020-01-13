@@ -19,8 +19,8 @@ logging.basicConfig(level=logging.DEBUG)
 
 x_head = 319
 y_head = 283
-x_QRcode = 150
-y_QRcode = 150
+x_QRcode = 130
+y_QRcode = 130
 x_state = 100
 y_state = 100
 
@@ -93,6 +93,8 @@ def drawpic(head, state, qrcode, todaytime):
 		elif state=="4":
 			drawblack.text((400,80), u'4', font=font18, fill=0)
 		elif state=="5":
+			drawblack.text((400,80), u'5', font=font18, fill=0)
+		else:
 			drawblack.text((400,80), u'5', font=font18, fill=0)
 			
 		#QRCODE
