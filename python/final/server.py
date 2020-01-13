@@ -32,7 +32,7 @@ def job():
 
 if __name__ == '__main__':
 	scheduler = GeventScheduler()
-	scheduler.add_job(job, 'interval', seconds=1)
+	scheduler.add_job(job(), 'interval', seconds=1)
 	scheduler.start()
 	
 	
