@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import paho.mqtt.client as mqtt
+from test1 import abc
 import datetime
-import threading
 
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
@@ -15,9 +15,9 @@ def on_message(client, userdata, msg):
 	global a, b
 	
 	if msg.payload == "Hello":
-		print(123)
+		
 	if msg.payload == "World!":
-		print(123)
+		
 
 	
 if __name__ == '__main__':
@@ -29,15 +29,6 @@ if __name__ == '__main__':
 	client.loop_forever()
 
 	while True:
-		def func():
-			print("123123")
-			timer = threading.Timer(86400, func)
-			timer.start()
 		now_time = datetime.datetime.now()
-		next_time = now_time + datetime.timedelta(days=+1)
-		next_year = next_time.date().year
-		next_month = next_time.date().month
-		next_day = next_time.date().day
-		next_time = datetime.datetime.strptime(str(datetime.datetime.now().date)+" 15:48:59", "%Y-%m-%d %H:%M:%S")
-		timer_start_time = (next_time - now_time).total_seconds()
-		print(now_time)
+		if now_time.second == 20:
+			print(now_time)
