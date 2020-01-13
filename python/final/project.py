@@ -28,7 +28,7 @@ def test(head, state, qrcode, todaytime):
 	print(head, state, qrcode, todaytime)
 
 
-def drawimg(head, state, qrcode, todaytime):
+def drawpic(head, state, qrcode, todaytime):
 	try:
 		try:
 			img_src1 = head
