@@ -35,21 +35,21 @@ def test(head, state, qrcode, todaytime):
 def drawpic(head, state, qrcode, todaytime):
 	try:
 		try:
-			img_src1 = head
+			img_src1 = head.decode('utf-8','strict')
 			response1 = req.get(img_src1)
 			image_head = Image.open(BytesIO(response1.content))
 		except:
 			image_head = Image.open(os.path.join(picdir, error))
 
 		try:
-			img_src2 = qrcode
+			img_src2 = qrcode.decode('utf-8','strict')
 			response2 = req.get(img_src2)
 			image_QRcode = Image.open(BytesIO(response2.content))
 		except:
 			image_QRcode = Image.open(os.path.join(picdir, error))
 
 		try:
-			state = state
+			state = state.decode('utf-8','strict')
 			stateimage = Image.open(os.path.join(picdir, state))
 		except:
 			stateimage = Image.open(os.path.join(picdir, error))
