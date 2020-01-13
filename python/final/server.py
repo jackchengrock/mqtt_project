@@ -29,7 +29,8 @@ if __name__ == '__main__':
 		client.connect("192.168.66.19", 1883, 60)
 		client.loop_forever()
 	def next():
-		print("123")
+		while True:
+			print("123")
 
 	connect = threading.Thread(target=job)
 	nextday = threading.Thread(target=next)
