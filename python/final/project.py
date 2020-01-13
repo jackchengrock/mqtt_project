@@ -84,15 +84,15 @@ def drawimg(head, state, qrcode, todaytime):
 		print("state")
 		drawblack.text((339,20), 'state', font=font18, fill=0)
 		HBlackimage.paste(stateimage, (420,60))
-		if state="1":
+		if state=="1":
 			drawblack.text((400,80), u'1', font=font18, fill=0)
-		elif state="2":
+		elif state=="2":
 			drawblack.text((400,80), u'2', font=font18, fill=0)
-		elif state="3":
+		elif state=="3":
 			drawblack.text((400,80), u'3', font=font18, fill=0)
-		elif state="4":
+		elif state=="4":
 			drawblack.text((400,80), u'4', font=font18, fill=0)
-		elif state="5":
+		elif state=="5":
 			drawblack.text((400,80), u'5', font=font18, fill=0)
 			
 		#QRCODE
