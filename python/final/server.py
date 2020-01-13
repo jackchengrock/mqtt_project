@@ -24,19 +24,18 @@ def on_message(client, userdata, msg):
 def job():
 	print("123")
 
-
-client = mqtt.Client()
-client.on_connect = on_connect
-client.on_message = on_message
-client.connect("192.168.66.19", 1883, 60)
-scheduler = GeventScheduler()
-scheduler.add_job(job(), 'interval', seconds=1)
-scheduler.start()
-client.loop_forever()
-
-
 if __name__ == '__main__':
-	
+
+	client = mqtt.Client()
+	client.on_connect = on_connect
+	client.on_message = on_message
+	client.connect("192.168.66.19", 1883, 60)
+	scheduler = GeventScheduler()
+	scheduler.add_job(job(), 'interval', seconds=1)
+	scheduler.start()
+	client.loop_forever()
+
+
 	
 	
 	
