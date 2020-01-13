@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import paho.mqtt.client as mqtt
-from test1 import abc
 import datetime
 
 def on_connect(clien, userdata, flags, rc):
