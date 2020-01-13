@@ -5,23 +5,36 @@ import threading
 import time
 from apscheduler.schedulers.gevent import GeventScheduler
 import schedule
+from project import drawpic
+
+today = ''
 
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
 
-	client.subscribe("CoreElectronics/test")
-	client.subscribe("CoreElectronics/topic")
+	client.subscribe("Project/head")
+	client.subscribe("Project/state")
+	client.subscribe("Project/qrcode")
 
 def on_message(client, userdata, msg):
 	print(msg.topic + "" + str(msg.payload))
-	global a, b
-	
-	if msg.payload == "Hello":
-		print("123")
-	if msg.payload == "World!":
-		print("123")
+	global today
+	head = ''
+	state = ''
+	qrcode = ''
+
+	if msg.topic == "Project/head":
+		head = msg.payload
+		drawpic(head, state, qrcode, today)
+	if msg.topic == "Project/state":
+		state = msg.payload 
+		drawpic(head, state, qrcode, today)
+	if msg.topic == "Project/qrcode":
+		qrcode = msg.payload
+		drawpic(head, state, qrcode, today)
 
 def changtime():
+	global today
 	today = datetime.datetime.now().strftime("%Y/%m/%d")
 	print(today)
 

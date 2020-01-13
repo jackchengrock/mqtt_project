@@ -43,6 +43,13 @@ stateimage = stateimage.resize((x_state,y_state), Image.ANTIALIAS)
 image_headB = image_headB.resize((x_head,y_head), Image.ANTIALIAS)
 image_headR = image_headR.resize((x_head,y_head), Image.ANTIALIAS)
 
+def drawpic(head, state, qrcode, todaytime):
+	print(head)
+	print(state)
+	print(qrcode)
+	print(todaytime)
+
+
 try:
 	epd = epd7in5bc.EPD()
 	epd.init()
