@@ -84,15 +84,15 @@ def drawpic(head, state, qrcode, todaytime):
 		print("state")
 		drawblack.text((339,20), 'state', font=font18, fill=0)
 		HBlackimage.paste(stateimage, (420,60))
-		if state=="1":
+		if state=="b'1'":
 			drawblack.text((400,80), u'1', font=font18, fill=0)
-		elif state=="2":
+		elif state=="b'2'":
 			drawblack.text((400,80), u'2', font=font18, fill=0)
-		elif state=="3":
+		elif state=="b'3'":
 			drawblack.text((400,80), u'3', font=font18, fill=0)
-		elif state=="4":
+		elif state=="b'4'":
 			drawblack.text((400,80), u'4', font=font18, fill=0)
-		elif state=="5":
+		elif state=="b'5'":
 			drawblack.text((400,80), u'5', font=font18, fill=0)
 		else:
 			drawblack.text((400,80), u'5', font=font18, fill=0)
@@ -102,7 +102,6 @@ def drawpic(head, state, qrcode, todaytime):
 		drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
 		HBlackimage.paste(image_QRcode, (450,240))
 		epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
-		epd.sleep()
 			
 	except IOError as e:
 		logging.info(e)
