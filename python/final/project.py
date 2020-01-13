@@ -87,10 +87,10 @@ def drawimg():
 		epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
 		epd.sleep()
 			
-except IOError as e:
-	logging.info(e)
-	
-except KeyboardInterrupt:    
-	logging.info("ctrl + c:")
-	epd7in5bc.epdconfig.module_exit()
-	exit()
+	except IOError as e:
+		logging.info(e)
+		
+	except KeyboardInterrupt:    
+		logging.info("ctrl + c:")
+		epd7in5bc.epdconfig.module_exit()
+		exit()
