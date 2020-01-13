@@ -64,7 +64,6 @@ try:
 	#headpic
 	print("head") 
 	HBlackimage.paste(image_headB, (0,0))
-    drawblack.text((339,170), u'請留言', font=font18, fill=0)
 	#data
 	print("date")
 	font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
@@ -73,7 +72,6 @@ try:
 	print("state")
 	drawblack.text((339,20), 'state', font=font18, fill=0)
 	HBlackimage.paste(stateimage, (399,70))
-   
 	#QRCODE
 	print("QRCODE")
 	drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
