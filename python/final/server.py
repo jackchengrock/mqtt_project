@@ -2,7 +2,7 @@
 
 import paho.mqtt.client as mqtt
 import datetime
-from APScheduler.schedulers.gevent import GeventScheduler
+from apscheduler.schedulers.gevent import GeventScheduler
 
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
