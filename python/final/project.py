@@ -14,21 +14,8 @@ from time import gmtime, strftime
 from PIL import Image,ImageDraw,ImageFont
 from io import BytesIO
 
-img_src1 = 'https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/11214290_979728228728313_6464220580933024886_n.jpg?_nc_cat=105&_nc_eui2=AeExGUqRxcZU4upTetprXJyv_Op4AKU9Oi0KerZLpKGeJ1eNelyKE8Va-EMuyfLeMAnEZ1jPtl2Q3kfCGkqxbtXdZlUhJaJEKiF-E1SavOs0xQ&_nc_ohc=k0ZZmaA6kdEAQkCfmXYSTOBPC0T1JsPb1y8boEcDjKwqiECZRTPWLAivA&_nc_ht=scontent-tpe1-1.xx&oh=f1bcf4ad88a887d8ffa735ea151bdeec&oe=5E3F278B'
-img_src2 = 'https://i.ibb.co/VJnjQhF/123.png'
-state = "100x100.bmp"
-headB = "layer_0.bmp"
-headR = "layer_1.bmp"
-
-
+error = "100x100.bmp"
 logging.basicConfig(level=logging.DEBUG)
-
-response1 = req.get(img_src1)	
-response2 = req.get(img_src2)
-
-image_QRcode = Image.open(BytesIO(response2.content))
-stateimage = Image.open(os.path.join(picdir, state))
-image_head = Image.open(BytesIO(response1.content))
 
 x_head = 319
 y_head = 283
@@ -37,18 +24,35 @@ y_QRcode = 150
 x_state = 100
 y_state = 100
 
-image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode), Image.ANTIALIAS)
-stateimage = stateimage.resize((x_state,y_state), Image.ANTIALIAS)
-image_head = image_head.resize((x_head,y_head), Image.ANTIALIAS)
+def test(head, state, qrcode, todaytime):
+	print(head, state, qrcode, todaytime)
 
-def drawpic(head, state, qrcode, todaytime):
-	print(head)
-	print(state)
-	print(qrcode)
-	print(todaytime)
 
-def drawimg():
+def drawimg(head, state, qrcode, todaytime):
 	try:
+		try:
+			img_src1 = head
+			response1 = req.get(img_src1)
+			image_head = Image.open(BytesIO(response1.content))
+		except:
+			image_head = Image.open(os.path.join(picdir, error))
+
+		try:
+			img_src2 = qrcode
+			response2 = req.get(img_src2)
+			image_QRcode = Image.open(BytesIO(response2.content))
+		except:
+			image_QRcode = Image.open(os.path.join(picdir, error))
+
+		try:
+			state = state
+			stateimage = Image.open(os.path.join(picdir, state))
+		except:
+			stateimage = Image.open(os.path.join(picdir, error))
+
+		image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode), Image.ANTIALIAS)
+		stateimage = stateimage.resize((x_state,y_state), Image.ANTIALIAS)
+		image_head = image_head.resize((x_head,y_head), Image.ANTIALIAS)
 		epd = epd7in5bc.EPD()
 		epd.init()
 		print("Clear")
@@ -75,11 +79,22 @@ def drawimg():
 		#data
 		print("date")
 		font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
-		drawblack.text((70, 323), "2019/12/19", font=font18, fill=0)
+		drawblack.text((70, 323), todaytime, font=font18, fill=0)
 		#state
 		print("state")
 		drawblack.text((339,20), 'state', font=font18, fill=0)
-		HBlackimage.paste(stateimage, (399,70))
+		HBlackimage.paste(stateimage, (420,60))
+		if state="1":
+			drawblack.text((400,80), u'1', font=font18, fill=0)
+		elif state="2":
+			drawblack.text((400,80), u'2', font=font18, fill=0)
+		elif state="3":
+			drawblack.text((400,80), u'3', font=font18, fill=0)
+		elif state="4":
+			drawblack.text((400,80), u'4', font=font18, fill=0)
+		elif state="5":
+			drawblack.text((400,80), u'5', font=font18, fill=0)
+			
 		#QRCODE
 		print("QRCODE")
 		drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
