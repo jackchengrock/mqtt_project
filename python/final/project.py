@@ -28,8 +28,7 @@ response2 = req.get(img_src2)
 
 image_QRcode = Image.open(BytesIO(response2.content))
 stateimage = Image.open(os.path.join(picdir, state))
-image_headB = Image.open(BytesIO(response1.content))
-image_headR = Image.open(os.path.join(picdir, headR))
+image_head = Image.open(BytesIO(response1.content))
 
 x_head = 319
 y_head = 283
@@ -40,8 +39,7 @@ y_state = 100
 
 image_QRcode = image_QRcode.resize((x_QRcode,y_QRcode), Image.ANTIALIAS)
 stateimage = stateimage.resize((x_state,y_state), Image.ANTIALIAS)
-image_headB = image_headB.resize((x_head,y_head), Image.ANTIALIAS)
-image_headR = image_headR.resize((x_head,y_head), Image.ANTIALIAS)
+image_head = image_head.resize((x_head,y_head), Image.ANTIALIAS)
 
 def drawpic(head, state, qrcode, todaytime):
 	print(head)
@@ -73,7 +71,7 @@ try:
 	drawblack.line(((319,233), (639,233)), fill=0, width=5)
 	#headpic
 	print("head") 
-	HBlackimage.paste(image_headB, (0,0))
+	HBlackimage.paste(image_head, (0,0))
 	#data
 	print("date")
 	font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
