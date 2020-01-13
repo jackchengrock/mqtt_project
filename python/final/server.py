@@ -24,7 +24,7 @@ if __name__ == '__main__':
 	def job():
 		print(123)
 	scheduler = GeventScheduler()
-	scheduler.add_job(job(), 'interval', seconds=1)
+	scheduler.add_job(job, 'interval', seconds=1)
 	scheduler.start()
 	client = mqtt.Client()
 	client.on_connect = on_connect
