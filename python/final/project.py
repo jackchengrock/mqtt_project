@@ -25,10 +25,10 @@ x_state = 100
 y_state = 100
 
 def test(head, state, qrcode, todaytime):
-	print(head.decode('utf-8'))
-	print(state.decode('utf-8'))
+	print(head.decode('utf-8','strict'))
+	print(state.decode('utf-8','strict'))
 	print(error)
-	print(qrcode.decode('utf-8'))
+	print(qrcode.decode('utf-8','strict'))
 	print(todaytime)
 
 
