@@ -40,5 +40,4 @@ if __name__ == '__main__':
 		next_day = next_time.date().day
 		next_time = datetime.datetime.strptime(str(datetime.datetime.now().date)+" 15:48:59", "%Y-%m-%d %H:%M:%S")
 		timer_start_time = (next_time - now_time).total_seconds()
-		timer = threading.Timer(timer_start_time, func)
-		timer.start()
+		print(now_time)
