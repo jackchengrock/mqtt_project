@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import paho.mqtt.client as mqtt
 import datetime
 import threading
@@ -23,9 +22,11 @@ def on_message(client, userdata, msg):
 		print("123")
 
 def changtime():
-	print("123")
+	today = datetime.datetime.now().strftime("%Y/%m/%d")
+	print(today)
 
-schedule.every().day.at("17:20").do(changtime)
+schedule.every().day.at("00:00").do(changtime)
+schedule.every(60).seconds.do(changtime)
 
 def job():
 	while True:
