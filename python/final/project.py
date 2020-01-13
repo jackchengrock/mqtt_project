@@ -47,47 +47,46 @@ def drawpic(head, state, qrcode, todaytime):
 	print(qrcode)
 	print(todaytime)
 
-
-try:
-	epd = epd7in5bc.EPD()
-	epd.init()
-	print("Clear")
-	epd.Clear()
-	#Drawing on the Horizontal image
-	HBlackimage = Image.new('1', (epd.width, epd.height), 255)
-	HRedimage = Image.new('1', (epd.width, epd.height), 255)
-	#horizontal
-	print("Drawing")
-	drawblack = ImageDraw.Draw(HBlackimage)
-	drawred = ImageDraw.Draw(HRedimage)
-	font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
-	print("Drawline")
-	drawblack.line(((0,0), (0,383)), fill=0, width=5)
-	drawblack.line(((0,0), (639,0)), fill=0, width=5)
-	drawblack.line(((639,383), (0,383)), fill=0, width=5)
-	drawblack.line(((639,0), (639,383)), fill=0, width=5)
-	drawblack.line(((319,0), (319,383)), fill=0, width=5)
-	drawblack.line(((0,283), (319,283)), fill=0, width=5)
-	drawblack.line(((319,233), (639,233)), fill=0, width=5)
-	#headpic
-	print("head") 
-	HBlackimage.paste(image_head, (0,0))
-	#data
-	print("date")
-	font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
-	drawblack.text((70, 323), "2019/12/19", font=font18, fill=0)
-	#state
-	print("state")
-	drawblack.text((339,20), 'state', font=font18, fill=0)
-	HBlackimage.paste(stateimage, (399,70))
-	#QRCODE
-	print("QRCODE")
-	drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
-	HBlackimage.paste(image_QRcode, (450,240))
-	epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
-	time.sleep(2)
-	epd.sleep()
-		
+def 123():
+	try:
+		epd = epd7in5bc.EPD()
+		epd.init()
+		print("Clear")
+		epd.Clear()
+		#Drawing on the Horizontal image
+		HBlackimage = Image.new('1', (epd.width, epd.height), 255)
+		HRedimage = Image.new('1', (epd.width, epd.height), 255)
+		#horizontal
+		print("Drawing")
+		drawblack = ImageDraw.Draw(HBlackimage)
+		drawred = ImageDraw.Draw(HRedimage)
+		font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
+		print("Drawline")
+		drawblack.line(((0,0), (0,383)), fill=0, width=5)
+		drawblack.line(((0,0), (639,0)), fill=0, width=5)
+		drawblack.line(((639,383), (0,383)), fill=0, width=5)
+		drawblack.line(((639,0), (639,383)), fill=0, width=5)
+		drawblack.line(((319,0), (319,383)), fill=0, width=5)
+		drawblack.line(((0,283), (319,283)), fill=0, width=5)
+		drawblack.line(((319,233), (639,233)), fill=0, width=5)
+		#headpic
+		print("head") 
+		HBlackimage.paste(image_head, (0,0))
+		#data
+		print("date")
+		font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
+		drawblack.text((70, 323), "2019/12/19", font=font18, fill=0)
+		#state
+		print("state")
+		drawblack.text((339,20), 'state', font=font18, fill=0)
+		HBlackimage.paste(stateimage, (399,70))
+		#QRCODE
+		print("QRCODE")
+		drawblack.text((339,263), u'聯絡老師', font=font18, fill=0)
+		HBlackimage.paste(image_QRcode, (450,240))
+		epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
+		epd.sleep()
+			
 except IOError as e:
 	logging.info(e)
 	
