@@ -30,7 +30,7 @@ if __name__ == '__main__':
 		client.loop_forever()
 	def next():
 		while True:
-			
+			time.sleep(1)
 
 	connect = threading.Thread(target=job)
 	nextday = threading.Thread(target=next)
