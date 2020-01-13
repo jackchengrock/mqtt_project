@@ -25,7 +25,7 @@ def on_message(client, userdata, msg):
 def changtime():
 	print("123")
 
-schedule.every(10).second.do(changtime)
+schedule.every(10).seconds.do(changtime)
 
 def job():
 	while True:
