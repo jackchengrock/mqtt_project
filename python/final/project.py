@@ -25,7 +25,7 @@ x_state = 100
 y_state = 100
 
 def test(head, state, qrcode, todaytime):
-	print(head, state, qrcode, todaytime)
+	print(head, state, qrcode, todaytime, error)
 
 
 def drawpic(head, state, qrcode, todaytime):
