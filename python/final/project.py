@@ -47,7 +47,7 @@ def drawpic(head, state, qrcode, todaytime):
 	print(qrcode)
 	print(todaytime)
 
-def 123():
+def drawimg():
 	try:
 		epd = epd7in5bc.EPD()
 		epd.init()
