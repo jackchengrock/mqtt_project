@@ -21,6 +21,8 @@ def on_message(client, userdata, msg):
 
 	
 if __name__ == '__main__':
+	def job():
+		print(123)
 	scheduler = GeventScheduler()
 	scheduler.add_job(job(), 'interval', seconds=1)
 	scheduler.start()
@@ -29,5 +31,4 @@ if __name__ == '__main__':
 	client.on_message = on_message
 	client.connect("192.168.66.19", 1883, 60)
 	client.loop_forever()
-	def job():
-		print(123)
+	
