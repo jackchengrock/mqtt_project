@@ -6,6 +6,7 @@ import time
 from apscheduler.schedulers.gevent import GeventScheduler
 import schedule
 from project import drawpic
+from project import test
 
 today = datetime.datetime.now().strftime("%Y/%m/%d")
 head = ''
