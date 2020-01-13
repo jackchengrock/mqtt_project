@@ -22,17 +22,15 @@ def on_message(client, userdata, msg):
 		print("123")
 
 def job():
-	time.sleep(1)
-	print("123")
+	print("qwe")
 
 if __name__ == '__main__':
 	client = mqtt.Client()
 	client.on_connect = on_connect
 	client.on_message = on_message
 	client.connect("192.168.66.19", 1883, 60)
-	scheduler = GeventScheduler()
-	scheduler.add_job(job(), 'interval', seconds=1)
-	scheduler.start()
+	t = threading.Thread(target=job)
+	t.start()
 	client.loop_forever()
 
 
