@@ -2,6 +2,8 @@
 
 import paho.mqtt.client as mqtt
 import datetime
+import threading
+from time import sleep, ctimes
 
 def on_connect(clien, userdata, flags, rc):
 	print("connected with" + str(rc))
@@ -20,14 +22,13 @@ def on_message(client, userdata, msg):
 
 	
 if __name__ == '__main__':
-	client = mqtt.Client()
-	client.on_connect = on_connect
-	client.on_message = on_message
-
-	client.connect("192.168.66.19", 1883, 60)
-	client.loop_forever()
-
-	while True:
-		now_time = datetime.datetime.now()
-		if now_time.second == 20:
-			print("123")
+	def job():
+		client = mqtt.Client()
+		client.on_connect = on_connect
+		client.on_message = on_message
+		client.connect("192.168.66.19", 1883, 60)
+		client.loop_forever()
+	t = threading.Thread(target=job())
+	for i in range(10):
+		print(123)
+		time.sleep(1)
