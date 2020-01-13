@@ -29,12 +29,16 @@ if __name__ == '__main__':
 	client.loop_forever()
 
 	while True:
+		def func():
+			print("123123")
+			timer = threading.Timer(86400, func)
+			timer.start()
 		now_time = datetime.datetime.now()
 		next_time = now_time + datetime.timedelta(days=+1)
 		next_year = next_time.date().year
 		next_month = next_time.date().month
 		next_day = next_time.date().day
-		next_time = datetime.datetime.strptime(str(next_year)+"-"+str(next_month)+"-"+str(next_day)+" 00:00:00", "%Y-%m-%d %H:%M:%S")
+		next_time = datetime.datetime.strptime(str(datetime.datetime.now().date)+" 13:14:59", "%Y-%m-%d %H:%M:%S")
 		timer_start_time = (next_time - now_time).total_seconds()
 		timer = threading.Timer(timer_start_time, func)
 		timer.start()
