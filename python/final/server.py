@@ -31,4 +31,4 @@ if __name__ == '__main__':
 	while True:
 		now_time = datetime.datetime.now()
 		if now_time.second == 20:
-			print(now_time)
+			print("123")
