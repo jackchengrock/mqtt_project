@@ -22,10 +22,10 @@ def on_message(client, userdata, msg):
 		print("123")
 
 def job():
+	time.sleep(1)
 	print("123")
 
 if __name__ == '__main__':
-
 	client = mqtt.Client()
 	client.on_connect = on_connect
 	client.on_message = on_message
