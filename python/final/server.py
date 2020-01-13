@@ -24,13 +24,13 @@ def on_message(client, userdata, msg):
 	global today, head, state, qrcode
 
 	if msg.topic == "Project/head":
-		head = msg.payload
+		head = msg
 		drawpic(head, state, qrcode, today)
 	if msg.topic == "Project/state":
-		state = msg.payload 
+		state = msg
 		drawpic(head, state, qrcode, today)
 	if msg.topic == "Project/qrcode":
-		qrcode = msg.payload
+		qrcode = msg
 		drawpic(head, state, qrcode, today)
 
 def changtime():
