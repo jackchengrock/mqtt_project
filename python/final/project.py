@@ -50,7 +50,7 @@ def drawpic(head, state, qrcode, todaytime):
 
 		try:
 			state = state.decode('utf-8','strict')
-			stateimage = Image.open(os.path.join(picdir, state))
+			stateimage = Image.open(os.path.join(picdir, state+".png"))
 		except:
 			stateimage = Image.open(os.path.join(picdir, error))
 
